@@ -89,19 +89,52 @@ var upperCasedCharacters = [
 ];
 
 
+
+
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
-var passwordLength = prompt('select length of password');
-  if (passwordLength < 8 || passwordLength > 128){
-    alert('Passord length must be more than 8 characters and less than 128');
+  var passwordLength = prompt('select length of password');
+  if (passwordLength < 8){
+    alert('Password is short. Pick a number between 8 and 128');
+  }
+  else if (passwordLength > 128){
+    alert('Password is too long. Pick a number between 8 and 128');
+  }
+
+  else {
+    var lowerCaseLength = prompt('Select number of lowercase characters');
+    if (lowerCaseLength <= 0){
+      alert ("Password must include at least one lowercase character");
+    }
+    else if (lowerCaseLength > passwordLength - 3){
+      alert ("Lowercase characters must be less than " + (passwordLength - 3) + " characters")
+    }
+
+    else {
+      var upperCaseLength = prompt('Select number of uppercase characters');
+      if (upperCaseLength <= 0){
+        alert ("Password must include at least one uppercase character");
+      } 
+      else if (upperCaseLength > passwordLength - (lowerCaseLength + 2));
+      alert ("uppercase characters must be less than " + (passwordLength - (lowerCaseLength - 1)) + " characters" );
+
+      else
+      var numericCharacterLength = prompt('Select number of numeric characters');
+      if (numericCharacterLength <= 0){
+        alert ("Password must include at least one uppercase character")
+      }
+    }
   }
   return;
 }
 
 getPasswordOptions()
+
 // Function for getting a random element from an array
 function getRandom(arr) {
-  var  = Math.floor(Math.random() * months.length);
+  // var   = Math.floor(Math.random() * months.length);
 
 }
 
