@@ -88,13 +88,20 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+var passwordLength = prompt('select length of password');
+  if (passwordLength < 8 || passwordLength > 128){
+    alert('Passord length must be more than 8 characters and less than 128');
+  }
+  return;
 }
 
+getPasswordOptions()
 // Function for getting a random element from an array
 function getRandom(arr) {
+  var  = Math.floor(Math.random() * months.length);
 
 }
 
