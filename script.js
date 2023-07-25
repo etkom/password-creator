@@ -90,14 +90,17 @@ var upperCasedCharacters = [
 
 
 
-// Store user prompts in a variable
+// Variables declared at global scope
 var passwordLength;
 var lowerCaseLength;
 var upperCaseLength;
 var numericCharacterLength;
 var specialCharactersLength;
+var arr;
+var shuffledArr;
 
-// Create functions to assign reusable prompts to password length inputs
+
+// Function to prompt user for password options
 function passwordLengthValidation() {
   passwordLength = prompt('select length of password');
 }
@@ -115,20 +118,7 @@ function specialCharactersLengthValidation() {
 }
 
 
-
-
-// function numericCharacterLengthValidation() {
-//   prompt('Select number of numeric characters')
-//   if (numericCharacterLength <= 0){
-//     alert ("Password must include at least one numeric character");
-//   }
-//     else if (numericCharacterLength > passwordLength - (upperCaseLength + 1)){
-//     alert ("numeric characters must be " + ((passwordLength - lowerCaseLength) - 1) + "or less characters");
-//     }
-//   return;
-// }
-
-// Function to prompt user for password options
+// Function to validate user password options
 function getPasswordOptions(){
   passwordLengthValidation();
   if (passwordLength < 8){
@@ -185,19 +175,52 @@ function getPasswordOptions(){
 }
 }
 }
-
 getPasswordOptions()
 
-// Function for getting a random element from an array
-function getRandom(arr) {
-  var random   = Math.floor(Math.random() * months.length);
-
+// Function to 
+function randomCharacters(){
+  arr = [];
+  for (var  i = 0; i < lowerCaseLength; i++){
+  var randomLow = Math.floor(Math.random() * lowerCasedCharacters.length);
+  arr.push(lowerCasedCharacters[randomLow])
+  // arr.push(Math.floor(Math.random() * lowerCasedCharacters.length));
+  }
+  for (var j = 0; j < upperCaseLength; j++){
+    var randomUp = Math.floor(Math.random() * upperCasedCharacters.length);
+    arr.push(upperCasedCharacters[randomUp])
+  }
+  for (var k = 0; k < numericCharacterLength; k++){
+    var randomNum = Math.floor(Math.random() * numericCharacters.length);
+    arr.push(numericCharacters[randomNum])
+  }
+  for (var l = 0; l < specialCharactersLength; l++){
+    var randomSpecial = Math.floor(Math.random() * specialCharacters.length);
+    arr.push(specialCharacters[randomSpecial])
+  }
+  
+  console.log(arr)
+  return;
 }
+randomCharacters()
+
+// console.log(arr)
+
+// Function for getting a random element from an array
+function getRandom() {
+  return Math.random() - 0.5; 
+}
+
+getRandom()
+
+
 
 // Function to generate password with user input
 function generatePassword() {
-
+  shuffledArr = arr.slice().sort(getRandom);
+  console.log(shuffledArr)
+  return;
 }
+generatePassword()
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
