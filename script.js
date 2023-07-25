@@ -103,19 +103,23 @@ var concatPassword;
 
 // Function to prompt user for password options
 function passwordLengthValidation() {
-  passwordLength = prompt('select length of password');
+  passwordLength = prompt('Enter length of password. Choose a number between 12 and 128:');
+  // while (passwordLength === null || passwordLength.trim() === "" || passwordLength < 8 || passwordLength > 128){
+  // prompt('Password is invalid. Pick a number between 8 and 128');
+  // return;
+  // }
 }
 function lowerCaseLengthValidation() {
-  lowerCaseLength = prompt('Select number of lowercase characters');
+  lowerCaseLength = prompt('Enter number of lowercase characters');
 }
 function upperCaseLengthValidation() {
-  upperCaseLength = prompt('Select number of uppercase characters');
+  upperCaseLength = prompt('Enter number of uppercase characters');
 }
 function numericCharacterLengthValidation() {
-  numericCharacterLength = prompt('Select number of numeric characters');
+  numericCharacterLength = prompt('Enter number of numeric characters');
 }
 function specialCharactersLengthValidation() {
-  specialCharactersLength = prompt('Select number of special characters');
+  specialCharactersLength = prompt('Enter number of special characters');
   return;
 }
 
@@ -125,11 +129,9 @@ function getPasswordOptions(){
   passwordLengthValidation();
   if (passwordLength < 8){
     alert('Password is too short. Pick a number between 8 and 128');
-    passwordLengthValidation();
   }
   else if (passwordLength > 128){
     alert('Password is too long. Pick a number between 8 and 128');
-    passwordLengthValidation();
   }
   else {
     lowerCaseLengthValidation ();
@@ -177,7 +179,7 @@ function getPasswordOptions(){
 }
 }
 }
-getPasswordOptions()
+
 
 // Function to 
 function randomCharacters(){
@@ -202,7 +204,6 @@ function randomCharacters(){
   // console.log(arr)
   return;
 }
-randomCharacters()
 
 // console.log(arr)
 
@@ -211,17 +212,21 @@ function getRandom() {
   return Math.random() - 0.5; 
 }
 
-getRandom()
 
 
+// Function shuffle and concatenate password
+function shuffleConcat() {
+  shuffledArr = arr.slice().sort(getRandom);
+  concatPassword = shuffledArr.join('');
+}
 
 // Function to generate password with user input
 function generatePassword() {
-  shuffledArr = arr.slice().sort(getRandom);
-  concatPassword = shuffledArr.join('');
+  getPasswordOptions();
+  randomCharacters();
+  getRandom();
+  shuffleConcat();
   alert('Password is ' + concatPassword);
-  // console.log(shuffledArr)
-  // console.log(concatPassword)
   return;
 }
 generatePassword()
