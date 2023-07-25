@@ -103,24 +103,30 @@ var concatPassword;
 
 // Function to prompt user for password options
 function passwordLengthValidation() {
-  passwordLength = prompt('Enter length of password. Choose a number between 12 and 128:');
-  // while (passwordLength === null || passwordLength.trim() === "" || passwordLength < 8 || passwordLength > 128){
-  // prompt('Password is invalid. Pick a number between 8 and 128');
-  // return;
-  // }
+  passwordLength = parseInt(prompt('Enter length of password. Choose a number between 12 and 128:'));
+  // } while (passwordLength !== null || passwordLength.trim() !== "" || passwordLength > 8 || passwordLength < 128){
+  // prompt('Password is invalid. Pick a number between 8 and 128');}
+  return passwordLength;
 }
+
 function lowerCaseLengthValidation() {
-  lowerCaseLength = prompt('Enter number of lowercase characters');
+  lowerCaseLength = parseInt(prompt('Enter number of lowercase characters'));
+  // } while (lowerCaseLength === null || lowerCaseLength.trim() === "" || lowerCaseLength <= 0 || lowerCaseLength > (passwordLength - 3));
+  // prompt('Lowercase characters must be less than ' + (passwordLength - 2) + ' characters');
+  return lowerCaseLength;
 }
+
 function upperCaseLengthValidation() {
-  upperCaseLength = prompt('Enter number of uppercase characters');
+  upperCaseLength = parseInt(prompt('Enter number of uppercase characters'));
+  return upperCaseLength;
 }
 function numericCharacterLengthValidation() {
-  numericCharacterLength = prompt('Enter number of numeric characters');
+  numericCharacterLength = parseInt(prompt('Enter number of numeric characters'));
+  return numericCharacterLength;
 }
 function specialCharactersLengthValidation() {
-  specialCharactersLength = prompt('Enter number of special characters');
-  return;
+  specialCharactersLength = parseInt(prompt('Enter number of special characters'));
+  return specialCharactersLength;
 }
 
 
@@ -128,50 +134,42 @@ function specialCharactersLengthValidation() {
 function getPasswordOptions(){
   passwordLengthValidation();
   if (passwordLength < 8){
-    alert('Password is too short. Pick a number between 8 and 128');
+    prompt('Password is too short. Pick a number between 8 and 128');
   }
   else if (passwordLength > 128){
-    alert('Password is too long. Pick a number between 8 and 128');
+    prompt('Password is too long. Pick a number between 8 and 128');
   }
   else {
     lowerCaseLengthValidation ();
     if (lowerCaseLength <= 0){
-      alert ('Password must include at least one lowercase character');
-      lowerCaseLengthValidation();
+      prompt('Password must include at least one lowercase character');
     }
     else if (lowerCaseLength > passwordLength - 3){
-      alert ('Lowercase characters must be less than ' + (passwordLength - 2) + ' characters');
-      lowerCaseLengthValidation ();
+      prompt('Lowercase characters must be less than ' + (passwordLength - 2) + ' characters');
     }
     else {
       upperCaseLengthValidation();
       if (upperCaseLength <= 0){
-        alert ('Password must include at least one uppercase character');
-        upperCaseLengthValidation();
+        prompt('Password must include at least one uppercase character');
       } 
       else if (upperCaseLength > ((passwordLength - lowerCaseLength) - 2)){
-      alert ('Uppercase characters must be ' + ((passwordLength - lowerCaseLength) - 2) + ' or less characters');
-      upperCaseLengthValidation();
+      prompt('Uppercase characters must be ' + ((passwordLength - lowerCaseLength) - 2) + ' or less characters');
       }
       else {
         numericCharacterLengthValidation();
         if (numericCharacterLength <= 0){
-        alert ('Password must include at least one numeric character');
-        numericCharacterLengthValidation();
+        prompt('Password must include at least one numeric character');
       }
       else if (numericCharacterLength > ((passwordLength - lowerCaseLength - upperCaseLength) - 1)){
-        alert ('Numeric characters must be ' + ((passwordLength - lowerCaseLength - upperCaseLength) - 1) + 'or less characters');
-        numericCharacterLengthValidation();
+        prompt('Numeric characters must be ' + ((passwordLength - lowerCaseLength - upperCaseLength) - 1) + 'or less characters');
       }
       else {
         specialCharactersLengthValidation();
         if (specialCharactersLength <= 0){
-          alert ('Password must include at least one special character');
-          specialCharactersLengthValidation();
+          prompt('Password must include at least one special character');
         }
         else if (specialCharactersLength > (passwordLength - lowerCaseLength - upperCaseLength - numericCharacterLength)){
-          alert ('Special characters must be ' + (passwordLength - lowerCaseLength - upperCaseLength - numericCharacterLength) + 'or less characters');
-          specialCharactersLengthValidation();
+          prompt('Special characters must be ' + (passwordLength - lowerCaseLength - upperCaseLength - numericCharacterLength) + 'or less characters');
         }
     }
   }
@@ -181,7 +179,7 @@ function getPasswordOptions(){
 }
 
 
-// Function to 
+// Function to create random characters
 function randomCharacters(){
   arr = [];
   for (var  i = 0; i < lowerCaseLength; i++){
@@ -226,10 +224,8 @@ function generatePassword() {
   randomCharacters();
   getRandom();
   shuffleConcat();
-  alert('Password is ' + concatPassword);
-  return;
+  return concatPassword;
 }
-generatePassword()
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -244,3 +240,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+// alert('Password is ' + concatPassword);

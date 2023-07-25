@@ -8,7 +8,7 @@ In creating this i employed numerous techniques that make the likelihood of a re
 ## Usage
 
 To use the app: 
-1. Open the website by visiting:
+1. Open the website by visiting: https://etkom.github.io/password-creator
 2. Enter the length of the password
 3. Enter the length of the lowercase characters
 4. Enter the length of the uppercase characters
@@ -20,7 +20,10 @@ You need to enter at least one of each character type to meet secure standards. 
 Provide instructions and examples for use. Include screenshots as needed.
 
 Find below screenshots to provide further guidance
-    ![alt text](assets/images/screenshot.png)
+    ![alt text](./Images/Screenshot%202023-07-25%20at%2023.20.25.png)
+    ![alt text](./Images/Screenshot%202023-07-25%20at%2023.20.46.png)
+    ![alt text](./Images/Screenshot%202023-07-25%20at%2023.21.11.png)
+    ![alt text](./Images/Screenshot%202023-07-25%20at%2023.22.10.png)
 
 
 ## Credits
@@ -28,4 +31,5 @@ Find below screenshots to provide further guidance
 University of Birmingham Front-end team provided the array of characters that were used including the HTML and CSS elements.
 I contributed the javascript codes
 
+Also, here's a link to the repository https://github.com/etkom/password-creator
 
