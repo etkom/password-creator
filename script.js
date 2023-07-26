@@ -103,25 +103,25 @@ var concatPassword;
 
 // Function to prompt user for password options
 function passwordLengthValidation() {
-  passwordLength = parseInt(prompt('Enter length of password. Choose a number between 12 and 128:'));
+  passwordLength = parseInt(prompt('Password Length: Enter a number between 12 and 128'));
   return passwordLength;
 }
 
 function lowerCaseLengthValidation() {
-  lowerCaseLength = parseInt(prompt('Enter number of lowercase characters. Choose between 1 and ' + (passwordLength - 3)));
+  lowerCaseLength = parseInt(prompt('Lowercase characters: Enter a number between 1 and ' + (passwordLength - 3)));
   return lowerCaseLength;
 }
 
 function upperCaseLengthValidation() {
-  upperCaseLength = parseInt(prompt('Enter number of uppercase characters'));
+  upperCaseLength = parseInt(prompt('Uppercase characters: Enter a number between 1 and ' + (passwordLength - lowerCaseLength - 3)));
   return upperCaseLength;
 }
 function numericCharacterLengthValidation() {
-  numericCharacterLength = parseInt(prompt('Enter number of numeric characters'));
+  numericCharacterLength = parseInt(prompt('Numeric characters: Enter a number between 1 and ' + ((passwordLength - lowerCaseLength - upperCaseLength) - 1)));
   return numericCharacterLength;
 }
 function specialCharactersLengthValidation() {
-  specialCharactersLength = parseInt(prompt('Enter number of special characters'));
+  specialCharactersLength = parseInt(prompt('Special characters: Enter a number between 1 and ' + ((passwordLength - lowerCaseLength - upperCaseLength) - numericCharacterLength)));
   return specialCharactersLength;
 }
 
